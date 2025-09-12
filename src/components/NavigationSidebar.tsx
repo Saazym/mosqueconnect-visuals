@@ -12,6 +12,7 @@ const navigationItems = [
   { id: "slide9", label: "Central Leadership" },
   { id: "slide10", label: "Community Hub" },
   { id: "slide11", label: "Admin Portals" },
+  { id: "slide12", label: "Quran Reader" },
 ];
 
 export const NavigationSidebar = () => {

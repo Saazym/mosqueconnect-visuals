@@ -10,6 +10,7 @@ import { AIAssistantSection } from "@/components/sections/AIAssistantSection";
 import { CentralLeadershipSection } from "@/components/sections/CentralLeadershipSection";
 import { CommunityHubSection } from "@/components/sections/CommunityHubSection";
 import { AdminPortalsSection } from "@/components/sections/AdminPortalsSection";
+import { QuranReadingSection } from "@/components/sections/QuranReadingSection";
 
 const Index = () => {
   return (
@@ -29,6 +30,7 @@ const Index = () => {
           <CentralLeadershipSection />
           <CommunityHubSection />
           <AdminPortalsSection />
+          <QuranReadingSection />
         </div>
       </main>
     </div>

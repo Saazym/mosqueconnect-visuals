@@ -212,4 +212,10 @@
     height: 250px;
     max-height: 400px;
   }
+
+  /* Arabic font for Quran text */
+  .font-arabic {
+    font-family: 'Amiri Quran', 'Scheherazade New', 'Arabic Typesetting', serif;
+    font-size: 1.25rem;
+  }
 }
