@@ -1,4 +1,5 @@
 import { PhoneMockup } from "../PhoneMockup";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 
 export const DashboardSection = () => {
   return (
@@ -29,6 +30,55 @@ export const DashboardSection = () => {
               <div className="text-3xl mb-1">🤖</div>
               <span className="text-xs font-medium">Ask Gemini</span>
             </div>
+          </div>
+
+          {/* Weekly Champions Banner */}
+          <div className="px-5 mb-6">
+            <Card className="bg-gradient-to-r from-primary/10 to-accent/10 border-primary/20">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-center gap-2">
+                  🏆 Weekly Champions
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-300 to-amber-500 flex items-center justify-center text-white font-bold text-sm">
+                      AK
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium">🥇 Local Leader</p>
+                      <p className="text-xs text-muted-foreground">Ahmad K.</p>
+                    </div>
+                  </div>
+                  <span className="text-sm text-primary font-semibold">2,450 pts</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-teal-300 to-teal-500 flex items-center justify-center text-white font-bold text-sm">
+                      FM
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium">🥈 State Champion</p>
+                      <p className="text-xs text-muted-foreground">Fatima M.</p>
+                    </div>
+                  </div>
+                  <span className="text-sm text-accent font-semibold">3,120 pts</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-300 to-orange-500 flex items-center justify-center text-white font-bold text-sm">
+                      IA
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium">🥉 National Top</p>
+                      <p className="text-xs text-muted-foreground">Ibrahim A.</p>
+                    </div>
+                  </div>
+                  <span className="text-sm text-secondary font-semibold">4,890 pts</span>
+                </div>
+              </CardContent>
+            </Card>
           </div>
 
           <div className="px-5 mb-6">
