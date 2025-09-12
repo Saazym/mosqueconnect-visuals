@@ -1,12 +1,36 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { NavigationSidebar } from "@/components/NavigationSidebar";
+import { WelcomeSection } from "@/components/sections/WelcomeSection";
+import { LoginSection } from "@/components/sections/LoginSection";
+import { DashboardSection } from "@/components/sections/DashboardSection";
+import { MapsSection } from "@/components/sections/MapsSection";
+import { MosqueProfileSection } from "@/components/sections/MosqueProfileSection";
+import { EmaanAssessmentSection } from "@/components/sections/EmaanAssessmentSection";
+import { UserProfileSection } from "@/components/sections/UserProfileSection";
+import { AIAssistantSection } from "@/components/sections/AIAssistantSection";
+import { CentralLeadershipSection } from "@/components/sections/CentralLeadershipSection";
+import { CommunityHubSection } from "@/components/sections/CommunityHubSection";
+import { AdminPortalsSection } from "@/components/sections/AdminPortalsSection";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="flex min-h-screen">
+      <NavigationSidebar />
+      
+      <main className="flex-1 p-6 md:p-10">
+        <div className="max-w-7xl mx-auto space-y-16">
+          <WelcomeSection />
+          <LoginSection />
+          <DashboardSection />
+          <MapsSection />
+          <MosqueProfileSection />
+          <EmaanAssessmentSection />
+          <UserProfileSection />
+          <AIAssistantSection />
+          <CentralLeadershipSection />
+          <CommunityHubSection />
+          <AdminPortalsSection />
+        </div>
+      </main>
     </div>
   );
 };

@@ -1,42 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* MosqueConnect Design System - Warm Sunset & Teal Palette */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 40 20% 97%;  /* Warm off-white: #f8f7f4 */
+    --foreground: 0 0% 20%;    /* Soft dark: #333 */
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 180 84% 25%;     /* Teal-800: #115e59 */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 180 44% 51%;   /* Teal-600: #0d9488 */
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 45 93% 47%;       /* Amber-500: #f59e0b */
+    --accent-foreground: 0 0% 100%;
+
+    --success: 180 84% 25%;     /* Teal for success */
+    --success-foreground: 0 0% 100%;
+
+    --warning: 45 93% 47%;      /* Amber for warnings */
+    --warning-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 180 84% 25%;
 
     --radius: 0.5rem;
+
+    /* MosqueConnect specific colors */
+    --mosque-teal-50: 180 54% 94%;    /* Very light teal: #f0fdfa */
+    --mosque-teal-100: 180 40% 85%;   /* Light teal: #ccfbf1 */
+    --mosque-teal-200: 180 43% 76%;   /* Soft teal: #99f6e4 */
+    --mosque-amber-100: 45 93% 84%;   /* Light amber: #fef3c7 */
+    --mosque-amber-200: 45 93% 76%;   /* Soft amber: #fde68a */
+    --mosque-orange-100: 34 100% 92%; /* Light orange: #ffedd5 */
+    --mosque-orange-200: 32 97% 83%;  /* Soft orange: #fed7aa */
+    --mosque-sky-100: 204 94% 94%;    /* Light sky: #e0f2fe */
+    --mosque-gray-50: 210 20% 98%;    /* Very light gray: #f9fafb */
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-warm: linear-gradient(135deg, hsl(var(--accent)), hsl(32 95% 44%));
+    --gradient-teal: linear-gradient(135deg, hsl(var(--mosque-teal-200)), hsl(var(--mosque-teal-100)));
+
+    /* Shadows */
+    --shadow-mosque: 0 10px 40px hsla(var(--primary), 0.1);
+    --shadow-phone: 0 10px 40px hsla(0, 0%, 0%, 0.1);
+    --shadow-card: 0 4px 15px hsla(var(--primary), 0.08);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +131,85 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+/* MosqueConnect Custom Components */
+@layer components {
+  .phone-mockup {
+    width: 375px;
+    height: 812px;
+    background-color: hsl(var(--card));
+    border-radius: 40px;
+    box-shadow: var(--shadow-phone);
+    border: 12px solid hsl(0, 0%, 10%);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .phone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    height: 25px;
+    background-color: hsl(0, 0%, 10%);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    z-index: 10;
+  }
+
+  .phone-content {
+    flex-grow: 1;
+    padding: 40px 20px 20px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .phone-content::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-link {
+    @apply text-muted-foreground hover:text-primary font-medium transition-colors;
+  }
+
+  .nav-link.active {
+    @apply text-primary font-semibold;
+  }
+
+  .feature-card {
+    @apply bg-card rounded-xl p-6 shadow-[var(--shadow-card)] border border-border/50 hover:shadow-lg transition-all duration-300;
+  }
+
+  .mosque-button-primary {
+    @apply bg-secondary text-secondary-foreground font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-primary transition-colors;
+  }
+
+  .mosque-button-accent {
+    @apply bg-accent text-accent-foreground font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-warning transition-colors;
+  }
+
+  .achievement-badge {
+    @apply bg-gradient-to-br from-amber-200 to-amber-300 p-3 rounded-lg text-center shadow-sm hover:scale-105 transition-transform;
+  }
+
+  .achievement-locked {
+    @apply bg-muted p-3 rounded-lg text-center opacity-50;
+  }
+
+  .chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 250px;
+    max-height: 400px;
   }
 }

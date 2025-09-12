@@ -13,7 +13,7 @@ export default {
       },
     },
     extend: {
-      colors: {
+        colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -39,6 +39,14 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -46,6 +54,27 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        mosque: {
+          teal: {
+            50: "hsl(var(--mosque-teal-50))",
+            100: "hsl(var(--mosque-teal-100))",
+            200: "hsl(var(--mosque-teal-200))",
+          },
+          amber: {
+            100: "hsl(var(--mosque-amber-100))",
+            200: "hsl(var(--mosque-amber-200))",
+          },
+          orange: {
+            100: "hsl(var(--mosque-orange-100))",
+            200: "hsl(var(--mosque-orange-200))",
+          },
+          sky: {
+            100: "hsl(var(--mosque-sky-100))",
+          },
+          gray: {
+            50: "hsl(var(--mosque-gray-50))",
+          },
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
