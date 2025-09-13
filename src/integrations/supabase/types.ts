@@ -14,7 +14,292 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      achievements: {
+        Row: {
+          achievement_name: string
+          achievement_type: string
+          description: string | null
+          earned_at: string
+          id: string
+          points_awarded: number | null
+          user_id: string
+        }
+        Insert: {
+          achievement_name: string
+          achievement_type: string
+          description?: string | null
+          earned_at?: string
+          id?: string
+          points_awarded?: number | null
+          user_id: string
+        }
+        Update: {
+          achievement_name?: string
+          achievement_type?: string
+          description?: string | null
+          earned_at?: string
+          id?: string
+          points_awarded?: number | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      community_events: {
+        Row: {
+          created_at: string
+          created_by: string
+          current_participants: number | null
+          description: string | null
+          event_date: string
+          id: string
+          location: string | null
+          max_participants: number | null
+          mosque_id: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          created_by: string
+          current_participants?: number | null
+          description?: string | null
+          event_date: string
+          id?: string
+          location?: string | null
+          max_participants?: number | null
+          mosque_id: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string
+          current_participants?: number | null
+          description?: string | null
+          event_date?: string
+          id?: string
+          location?: string | null
+          max_participants?: number | null
+          mosque_id?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "community_events_mosque_id_fkey"
+            columns: ["mosque_id"]
+            isOneToOne: false
+            referencedRelation: "mosques"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      emaan_assessments: {
+        Row: {
+          completed_at: string
+          id: string
+          rank_local: number | null
+          rank_national: number | null
+          rank_state: number | null
+          score: number
+          user_id: string
+          week_number: number
+          year_number: number
+        }
+        Insert: {
+          completed_at?: string
+          id?: string
+          rank_local?: number | null
+          rank_national?: number | null
+          rank_state?: number | null
+          score: number
+          user_id: string
+          week_number: number
+          year_number: number
+        }
+        Update: {
+          completed_at?: string
+          id?: string
+          rank_local?: number | null
+          rank_national?: number | null
+          rank_state?: number | null
+          score?: number
+          user_id?: string
+          week_number?: number
+          year_number?: number
+        }
+        Relationships: []
+      }
+      mosques: {
+        Row: {
+          address: string
+          created_at: string
+          description: string | null
+          id: string
+          image_url: string | null
+          latitude: number
+          longitude: number
+          name: string
+          updated_at: string
+          verified: boolean | null
+        }
+        Insert: {
+          address: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          latitude: number
+          longitude: number
+          name: string
+          updated_at?: string
+          verified?: boolean | null
+        }
+        Update: {
+          address?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          latitude?: number
+          longitude?: number
+          name?: string
+          updated_at?: string
+          verified?: boolean | null
+        }
+        Relationships: []
+      }
+      prayer_logs: {
+        Row: {
+          created_at: string
+          id: string
+          is_sunnah: boolean | null
+          location_verified: boolean | null
+          mosque_id: string
+          points_earned: number | null
+          prayer_date: string
+          prayer_name: string
+          user_id: string
+          verified_at: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_sunnah?: boolean | null
+          location_verified?: boolean | null
+          mosque_id: string
+          points_earned?: number | null
+          prayer_date?: string
+          prayer_name: string
+          user_id: string
+          verified_at?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_sunnah?: boolean | null
+          location_verified?: boolean | null
+          mosque_id?: string
+          points_earned?: number | null
+          prayer_date?: string
+          prayer_name?: string
+          user_id?: string
+          verified_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "prayer_logs_mosque_id_fkey"
+            columns: ["mosque_id"]
+            isOneToOne: false
+            referencedRelation: "mosques"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          current_streak: number | null
+          display_name: string | null
+          emaan_score: number | null
+          full_name: string | null
+          id: string
+          longest_streak: number | null
+          rank_level: number | null
+          total_points: number | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          current_streak?: number | null
+          display_name?: string | null
+          emaan_score?: number | null
+          full_name?: string | null
+          id?: string
+          longest_streak?: number | null
+          rank_level?: number | null
+          total_points?: number | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          current_streak?: number | null
+          display_name?: string | null
+          emaan_score?: number | null
+          full_name?: string | null
+          id?: string
+          longest_streak?: number | null
+          rank_level?: number | null
+          total_points?: number | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      quran_bookmarks: {
+        Row: {
+          ayah_number: number
+          created_at: string
+          id: string
+          is_starred: boolean | null
+          last_read_at: string | null
+          notes: string | null
+          surah_number: number
+          translation_key: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          ayah_number: number
+          created_at?: string
+          id?: string
+          is_starred?: boolean | null
+          last_read_at?: string | null
+          notes?: string | null
+          surah_number: number
+          translation_key?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          ayah_number?: number
+          created_at?: string
+          id?: string
+          is_starred?: boolean | null
+          last_read_at?: string | null
+          notes?: string | null
+          surah_number?: number
+          translation_key?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
